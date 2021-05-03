@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FlowApp</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class = "text-center">Welcome to FlowApp</h1>
+      <a href="#">Get Started</a>
+
+
+
+      <form method="POST" action="/">
+
+        {%csrf_token%}
+        {{form.title}}
+
+        <input type="submit" name="" value="Submit">
+
+      </form>
+
+
+      {% for task in tasks %}
+
+      <div>
+
+        {% if task.Done == True %}
+        <strike>{{task}}</strike>
+        {%else%}
+        <span>{{task}}</span>
+         {%endif%}
+         <a href="{% url 'update' task.id %}">Update</a>              <a href="{% url 'delete' task.id %}">Delete </a></p>
+
+
+      </div>
+
+
+        {%endfor%}
+
+
+    </div>
+
+
+  </body>
+</html>
+
+<style media="screen">
+  div{
+    font-family:Cursive;
+    border: 20px;
+    text-align: center;
+
+  }
+input{
+    font-family: serif;
+    background-color: 'black';
+    color: 'black';
+  }
+  body{
+    background-color: black;
+  }
+  h1,span,strike{
+    color:white;
+  }
+  form{
+    text-size:40px;
+    size: 60px;
+  }
+</style>

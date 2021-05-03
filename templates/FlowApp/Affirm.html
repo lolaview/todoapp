@@ -1,0 +1,16 @@
+
+
+<h1>Are you Sure you want to delete "{{todo_task}}"</h1>
+<td>
+  <tr>
+    <form action="" method="POST">
+      {% csrf_token%}
+      <input type="submit" name="" value="YES">
+    </form>
+
+  </tr>
+  <tr>
+    <a href="{% url 'home' %}"><input type="submit" name="" value="No"></a>
+  </tr>
+
+</td>
